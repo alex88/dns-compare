@@ -58,7 +58,7 @@ func processLine(client *dns.Client, hostname string, recordType string) {
 			case *dns.A:
 				serverResults[i] = r.A.String()
 			case *dns.MX:
-				serverResults[i] = r.Mx
+				serverResults[i] = fmt.Sprintf("%d,%s", r.Preference, r.Mx)
 			case *dns.NS:
 				serverResults[i] = r.Ns
 			case *dns.CNAME:
